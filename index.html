@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Clock</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title"><span>Pomodoro</span> Clock</h1>
+        <div class="timer-display">
+            <h2 class="display__step">Focus</h2>
+            <h1 class="display__time-left">25:00</h1>
+            <p class="display__end-time">Click to Start Timer</p>
+            <div class="progress__filled"></div>
+        </div>
+        <div class="checkmarks">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="settings">
+            <div class="setting">
+                <span>Focus Session Length: </span>
+                <div class="length">
+                    <button data-amt="+1">&plus;</button>
+                    <span>.35</span>
+                    <button data-amt="-1">&minus;</button>
+                </div>
+            </div>
+            <div class="setting">
+                <span>Short Break Length: </span>
+                <div class="length">
+                    <button data-amt="+1">&plus;</button>
+                    <span>.25</span>
+                    <button data-amt="-1">&minus;</button>
+                </div>
+
+            </div>
+            <div class="setting">
+                <span>Long Break Length: </span>
+                <div class="length">
+                    <button data-amt="+1">&plus;</button>
+                    <span>.15</span>
+                    <button data-amt="-1">&minus;</button>
+                </div>
+            </div class="setting">
+        </div>
+
+        <div class="info">
+            <h1>Pomodoro Technique</h1>
+            <p>Francesco Cirillo first came up with this time management technique back in the late 1980s. The essential principle
+                is that work is better managed in intervals, traditionally 25 minutes, followed by short breaks. </p>
+            <h2>The Original Six Steps:</h2>
+            <ol>
+                <li>Decide on the task to be done.</li>
+                <li>Set the pomodoro timer (traditionally to 25 minutes)</li>
+                <li>Work on the task.</li>
+                <li>End work when the timer rings and put a checkmark on a piece of paper</li>
+                <li>If you have fewer than four checkmarks, take a short break (3–5 minutes), then go to step 2.</li>
+                <li>After four pomodoros, take a longer break (15–30 minutes), reset your checkmark count to zero, then go to
+                    step 1.</li>
+            </ol>
+            <span>For more info go to
+                <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Wikipedia</a>
+            </span>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
