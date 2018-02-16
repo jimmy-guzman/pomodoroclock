@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,47 +10,24 @@
 </head>
 
 <body>
+    <div class="header">
+        <h1 class="title">Pomodoro Clock</h1>
+    </div>
     <div class="container">
-        <h1 class="title"><span>Pomodoro</span> Clock</h1>
         <div class="timer-display">
-            <h2 class="display__step">Focus</h2>
+            <h2 class="display__session">Focus</h2>
             <h1 class="display__time-left">25:00</h1>
             <p class="display__end-time">Click to Start Timer</p>
             <div class="progress__filled"></div>
-        </div>
-        <div class="checkmarks">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="settings">
-            <div class="setting">
-                <span>Focus Session Length: </span>
-                <div class="length">
-                    <button data-amt="+1">&plus;</button>
-                    <span>.35</span>
-                    <button data-amt="-1">&minus;</button>
-                </div>
+            <div class="checkmarks">
+                <span>&check;</span>
+                <span>&check;</span>
+                <span>&check;</span>
+                <span>&check;</span>
             </div>
-            <div class="setting">
-                <span>Short Break Length: </span>
-                <div class="length">
-                    <button data-amt="+1">&plus;</button>
-                    <span>.25</span>
-                    <button data-amt="-1">&minus;</button>
-                </div>
+        </div>
 
-            </div>
-            <div class="setting">
-                <span>Long Break Length: </span>
-                <div class="length">
-                    <button data-amt="+1">&plus;</button>
-                    <span>.15</span>
-                    <button data-amt="-1">&minus;</button>
-                </div>
-            </div class="setting">
-        </div>
+
 
         <div class="info">
             <h1>Pomodoro Technique</h1>
@@ -69,6 +47,35 @@
                 <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Wikipedia</a>
             </span>
         </div>
+
+
+    </div>
+    <div class="settings">
+        <div class="setting">
+            <span>Focus Session Length: </span>
+            <div class="length">
+                <button data-amt="+1">&plus;</button>
+                <span>.35</span>
+                <button data-amt="-1">&minus;</button>
+            </div>
+        </div>
+        <div class="setting">
+            <span>Short Break Length: </span>
+            <div class="length">
+                <button data-amt="+1">&plus;</button>
+                <span>.25</span>
+                <button data-amt="-1">&minus;</button>
+            </div>
+
+        </div>
+        <div class="setting">
+            <span>Long Break Length: </span>
+            <div class="length">
+                <button data-amt="+1">&plus;</button>
+                <span>.15</span>
+                <button data-amt="-1">&minus;</button>
+            </div>
+        </div class="setting">
     </div>
     <script src="js/app.js"></script>
 </body>
