@@ -9,6 +9,7 @@ const lengthButtons = document.querySelectorAll("[data-amt]");
 let countdown;
 let count = 0;
 let pomodoros = 0;
+let start = true;
 
 function timer(seconds) {
   // clear any existing timers
@@ -54,14 +55,13 @@ function displayEndTime(timeStamp) {
 
 function handleCheckmarks() {
   if (count % 2 !== 0) {
-    checkmarks[pomodoros].style.opacity = '1';
+    checkmarks[pomodoros].style.opacity = "1";
   }
   if (pomodoros === 4) {
-    checkmarks.forEach(check => check.style.opacity = '0');
+    checkmarks.forEach(check => (check.style.opacity = "0"));
     pomodoros = 0;
   }
 }
-
 
 function startTimer() {
   let seconds = length[0].textContent * 60;
@@ -78,15 +78,22 @@ function startTimer() {
     sessionDisplay.textContent = "Focus";
     seconds = length[0].textContent * 60;
   }
-  timer(seconds);
+  // if(start) {
+    timer(seconds);
+  // }
+  // start = false;
 }
 
-function handleLength() {
-  console.log(index);
-  console.log(this.dataset.amt);
+function handleLength(e) {
+  if(this.dataset.amt === "+1") {
+    let minutes = parseInt(e.target.nextElementSibling.textContent);
+    e.target.nextElementSibling.textContent=minutes + 1;
+  }
+  if(this.dataset.amt === "-1") {
+    let minutes = parseInt(e.target.previousElementSibling.textContent);
+    if(minutes != 0) e.target.previousElementSibling.textContent=minutes - 1;
+  }
 }
 
 timerBox.addEventListener("click", startTimer);
-lengthButtons.forEach(function(button, index) {
-  button.addEventListener('click', handleLength());
-});
+lengthButtons.forEach(button => button.addEventListener("click", handleLength));
