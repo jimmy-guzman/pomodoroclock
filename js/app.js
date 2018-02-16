@@ -9,17 +9,19 @@ const lengthButtons = document.querySelectorAll("[data-amt]");
 let countdown;
 let count = 0;
 let pomodoros = 0;
-let start = true;
+let isPaused = false;
+let secondsLeft = 0;
 
 function timer(seconds) {
+  const now = Date.now();
   // clear any existing timers
   clearInterval(countdown);
-  const now = Date.now();
   const then = now + seconds * 1000;
   displayTimeLeft(seconds);
   displayEndTime(then);
+
   countdown = setInterval(() => {
-    const secondsLeft = Math.round((then - Date.now()) / 1000);
+    secondsLeft = Math.round((then - Date.now()) / 1000);
     //check if we should stop it
     if (secondsLeft === 0) {
       clearInterval(countdown);
@@ -78,20 +80,24 @@ function startTimer() {
     sessionDisplay.textContent = "Focus";
     seconds = length[0].textContent * 60;
   }
-  // if(start) {
-    timer(seconds);
-  // }
-  // start = false;
+  if (!isPaused) {
+    secondsLeft === 0 ? timer(seconds) : timer(secondsLeft);
+    isPaused = true;
+  } else {
+    displayTimeLeft(secondsLeft);
+    clearInterval(countdown);
+    isPaused = false;
+  }
 }
 
 function handleLength(e) {
-  if(this.dataset.amt === "+1") {
+  if (this.dataset.amt === "+1") {
     let minutes = parseInt(e.target.nextElementSibling.textContent);
-    e.target.nextElementSibling.textContent=minutes + 1;
+    e.target.nextElementSibling.textContent = minutes + 1;
   }
-  if(this.dataset.amt === "-1") {
+  if (this.dataset.amt === "-1") {
     let minutes = parseInt(e.target.previousElementSibling.textContent);
-    if(minutes != 0) e.target.previousElementSibling.textContent=minutes - 1;
+    if (minutes != 1) e.target.previousElementSibling.textContent = minutes - 1;
   }
 }
 
