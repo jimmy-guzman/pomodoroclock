@@ -43,7 +43,7 @@ function displayTimeLeft(seconds) {
     remainderSeconds < 10 ? "0" : ""
   }${remainderSeconds}`;
   // sets title of page
-  document.title = display;
+  document.title = sessionDisplay.textContent + ': ' + display;
   timerDisplay.textContent = display;
 }
 
@@ -83,18 +83,15 @@ function startTimer() {
     seconds = length[0].textContent * 60;
   }
   if (!isStart) {
-    console.log("Start");
     timer(seconds);
     isStart = true;
   }
   else if(isStart && !isPaused){
-    console.log("Pause");
     displayTimeLeft(secondsLeft);
     clearInterval(countdown);
     isPaused = true;
   }
   else if(isPaused) {
-    console.log("Resume");
     timer(secondsLeft);
   }
 }
