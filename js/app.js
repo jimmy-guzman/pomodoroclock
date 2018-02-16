@@ -10,6 +10,7 @@ let countdown;
 let count = 0;
 let pomodoros = 0;
 let isPaused = false;
+let isStart = false;
 let secondsLeft = 0;
 
 function timer(seconds) {
@@ -24,6 +25,7 @@ function timer(seconds) {
     secondsLeft = Math.round((then - Date.now()) / 1000);
     //check if we should stop it
     if (secondsLeft === 0) {
+      isStart = false;
       clearInterval(countdown);
       count++;
       handleCheckmarks();
@@ -80,13 +82,20 @@ function startTimer() {
     sessionDisplay.textContent = "Focus";
     seconds = length[0].textContent * 60;
   }
-  if (!isPaused) {
-    secondsLeft === 0 ? timer(seconds) : timer(secondsLeft);
-    isPaused = true;
-  } else {
+  if (!isStart) {
+    console.log("Start");
+    timer(seconds);
+    isStart = true;
+  }
+  else if(isStart && !isPaused){
+    console.log("Pause");
     displayTimeLeft(secondsLeft);
     clearInterval(countdown);
-    isPaused = false;
+    isPaused = true;
+  }
+  else if(isPaused) {
+    console.log("Resume");
+    timer(secondsLeft);
   }
 }
 
