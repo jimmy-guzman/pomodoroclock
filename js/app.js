@@ -52,10 +52,10 @@ function displayEndTime(timeStamp) {
 
 function handleCheckmarks() {
   if (count % 2 !== 0) {
-    checkmarks[pomodoros].style.display = 'block';
+    checkmarks[pomodoros].style.opacity = '1';
   }
   if (pomodoros === 4) {
-    checkmarks.forEach(check => check.style.display = 'none');
+    checkmarks.forEach(check => check.style.opacity = '0');
     pomodoros = 0;
   }
 }
