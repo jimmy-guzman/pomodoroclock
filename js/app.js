@@ -1,10 +1,12 @@
-let countdown;
 const timerDisplay = document.querySelector(".display__time-left");
 const timerBox = document.querySelector(".timer-display");
 const endTime = document.querySelector(".display__end-time");
 const checkmarks = document.querySelectorAll(".checkmarks span");
 const length = document.querySelectorAll(".length span");
+const sessionDisplay = document.querySelector(".display__session");
+const lengthButtons = document.querySelectorAll("[data-amt]");
 
+let countdown;
 let count = 0;
 let pomodoros = 0;
 
@@ -45,7 +47,7 @@ function displayEndTime(timeStamp) {
   const hour = end.getHours();
   const adjustedHour = hour > 12 ? hour - 12 : hour;
   const minutes = end.getMinutes();
-  endTime.textContent = `Break Starts At ${adjustedHour}:${
+  endTime.textContent = `Timer Ends At ${adjustedHour}:${
     minutes < 10 ? "0" : ""
   }${minutes}`;
 }
@@ -60,20 +62,31 @@ function handleCheckmarks() {
   }
 }
 
+
 function startTimer() {
   let seconds = length[0].textContent * 60;
   if (count % 2 !== 0) {
+    sessionDisplay.textContent = "Short Break";
     pomodoros++;
     if (pomodoros === 4) {
+      sessionDisplay.textContent = "Long Break";
       seconds = length[2].textContent * 60;
-
     } else {
       seconds = length[1].textContent * 60;
     }
   } else {
+    sessionDisplay.textContent = "Focus";
     seconds = length[0].textContent * 60;
   }
   timer(seconds);
 }
 
+function handleLength() {
+  console.log(index);
+  console.log(this.dataset.amt);
+}
+
 timerBox.addEventListener("click", startTimer);
+lengthButtons.forEach(function(button, index) {
+  button.addEventListener('click', handleLength());
+});

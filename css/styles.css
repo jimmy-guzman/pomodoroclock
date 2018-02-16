@@ -6,9 +6,9 @@
 }
 
 body {
-    margin: 0;
-  background: #E74C3C;
-  color: #ECF0F1;
+  margin: 0;
+  background: #e74c3c;
+  color: #ecf0f1;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -22,8 +22,8 @@ body {
 }
 
 .header {
-    background: #2C3E50;
-    width: 100%;
+  background: #2c3e50;
+  width: 100%;
 }
 .title {
   font-size: 48px;
@@ -51,7 +51,6 @@ body {
 .checkmarks span {
   width: 100%;
   height: 20px;
-  margin-bottom: 5px;
   text-align: center;
   opacity: 0;
   font-size: 24px;
@@ -72,9 +71,9 @@ body {
   margin-left: auto;
   display: flex;
   flex-direction: column;
-  background: #2C3E50;
+  background: #2c3e50;
   width: 100%;
-  padding: 1em;
+  padding: 1em 1em 0 1em;
 }
 
 .setting {
@@ -94,35 +93,37 @@ body {
 }
 
 .length span {
-  background: #ECF0F1;
+  background: #ecf0f1;
   width: 40px;
-  color: #2C3E50;
-}
-.setting input {
-  text-align: center;
-  width: 100%;
-  border: none;
-  outline: none;
-  color: #111111;
-  /* border-bottom: 1px solid #111111; */
+  color: #2c3e50;
 }
 
-.setting button{
-  background: #3498DB;
+.setting button {
+  background: #3498db;
   margin: 0 5px;
-  color: #ECF0F1;
+  color: #ecf0f1;
   border: none;
   outline: none;
 }
 
 .setting button:hover {
-    cursor: pointer;
-    background: #2980B9;
+  cursor: pointer;
+  background: #2980b9;
 }
 
+.footer {
+    margin-top: 1.6em;
+    color: #ecf0f1;
+    font-size: 12px;
+}
+
+.footer a {
+    color: #2980B9;
+    text-decoration: none;
+}
 
 @media (min-width: 768px) {
-    .display__time-left {
-        font-size: 200px;
-    }
+  .display__time-left {
+    font-size: 170px;
+  }
 }
