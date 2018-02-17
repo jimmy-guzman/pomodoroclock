@@ -12,8 +12,11 @@ let pomodoros = 0;
 let isPaused = false;
 let isStart = false;
 let secondsLeft = 0;
+let defaultTimer = true;
+let session = "Focus";
 
 function timer(seconds) {
+  sessionDisplay.textContent = session;
   const now = Date.now();
   // clear any existing timers
   clearInterval(countdown);
@@ -25,9 +28,9 @@ function timer(seconds) {
     secondsLeft = Math.round((then - Date.now()) / 1000);
     //check if we should stop it
     if (secondsLeft === 0) {
-      isStart = false;
       clearInterval(countdown);
-      count++;
+      defaultTimer = true;
+      console.log("count: ", count);
       handleCheckmarks();
       startTimer();
     }
@@ -43,7 +46,7 @@ function displayTimeLeft(seconds) {
     remainderSeconds < 10 ? "0" : ""
   }${remainderSeconds}`;
   // sets title of page
-  document.title = sessionDisplay.textContent + ': ' + display;
+  document.title = sessionDisplay.textContent + ": " + display;
   timerDisplay.textContent = display;
 }
 
@@ -58,40 +61,49 @@ function displayEndTime(timeStamp) {
 }
 
 function handleCheckmarks() {
-  if (count % 2 !== 0) {
-    checkmarks[pomodoros].style.opacity = "1";
-  }
-  if (pomodoros === 4) {
+  if (pomodoros === 0) {
     checkmarks.forEach(check => (check.style.opacity = "0"));
-    pomodoros = 0;
+  } else {
+    checkmarks[pomodoros - 1].style.opacity = "1";
+  }
+}
+
+function getSession() {
+  if (count % 2 != 0) {
+    session = "Focus";
+    seconds = length[0].textContent * 60;
+  } else {
+    if (pomodoros < 4) {
+      session = "Short Break";
+      seconds = length[1].textContent * 60;
+    } else {
+      session = "Long Break";
+      seconds = length[2].textContent * 60;
+      pomodoros = 0;
+    }
   }
 }
 
 function startTimer() {
-  let seconds = length[0].textContent * 60;
-  if (count % 2 !== 0) {
-    sessionDisplay.textContent = "Short Break";
-    pomodoros++;
-    if (pomodoros === 4) {
-      sessionDisplay.textContent = "Long Break";
-      seconds = length[2].textContent * 60;
-    } else {
-      seconds = length[1].textContent * 60;
-    }
-  } else {
-    sessionDisplay.textContent = "Focus";
-    seconds = length[0].textContent * 60;
-  }
-  if (!isStart) {
-    timer(seconds);
+  if ((!isStart && !isPaused) || defaultTimer) {
+    count++;
+    if (count % 2 !== 0) pomodoros++;
     isStart = true;
-  }
-  else if(isStart && !isPaused){
+    isPaused = false;
+    defaultTimer = false;
+    getSession();
+    timer(seconds);
+  } else if (isStart && !isPaused) {
     displayTimeLeft(secondsLeft);
     clearInterval(countdown);
+    sessionDisplay.textContent = "Paused";
+    isStart = false;
     isPaused = true;
-  }
-  else if(isPaused) {
+    defaultTimer = false;
+  } else if (!isStart && isPaused) {
+    isStart = true;
+    isPaused = false;
+    defaultTimer = false;
     timer(secondsLeft);
   }
 }
