@@ -5,6 +5,8 @@ const checkmarks = document.querySelectorAll(".checkmarks span");
 const length = document.querySelectorAll(".length span");
 const sessionDisplay = document.querySelector(".display__session");
 const lengthButtons = document.querySelectorAll("[data-amt]");
+const navButtons = document.querySelectorAll("nav li");
+const info = document.querySelector(".info");
 
 let countdown;
 let count = 0;
@@ -119,5 +121,18 @@ function handleLength(e) {
   }
 }
 
+function handleNav() {
+  if (this.textContent === "ℹ") {
+    timerBox.style.display = "none";
+    info.style.display = "block";
+    this.textContent = "✖";
+  } else if (this.textContent === "✖") {
+    timerBox.style.display = "block";
+    info.style.display = "none";
+    this.textContent = "ℹ";
+  }
+}
+
 timerBox.addEventListener("click", startTimer);
 lengthButtons.forEach(button => button.addEventListener("click", handleLength));
+navButtons.forEach(button => button.addEventListener("click", handleNav));
