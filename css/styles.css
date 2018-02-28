@@ -1,15 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Quando");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Patua+One');
 * {
   box-sizing: border-box;
-  font-family: "Quando", serif;
-  font-weight: 400;
 }
 
 body {
   margin: 0;
-  background: #ecf0f1;
-  /* background: #e74c3c; */
-  color: #e74c3c;
+  background: #f7f7f7 ;
+  color: #f75239 ;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -19,60 +16,81 @@ body {
 
 .container {
   margin: 0 auto;
-  width: 100%;
+
+  color: #402F3F
 }
 
 .header {
-  background: #2c3e50;
+  font-family: 'Patua One', cursive;
+  background: #402F3F ;
   width: 100%;
-  color: #ecf0f1;
 }
+
+
 .title {
-  font-size: 48px;
-  text-align: center;
+  color: #ecf0f1;
 }
 
 nav {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   list-style: none;
-  background: #ecf0f1; 
+  background: #402F3F ;
 }
 
 nav li {
   font-size: 20px;
   margin-left: .5em;
   padding: .5em;
-  color: #e74c3c;
+  color: #f75239 ;
   cursor: pointer;
 }
 
 .display__session {
-  font-size: 36px;
+  display: block;
+
+  font-size: 24px;
+
 }
+
 .timer-display {
+  font-family: 'Patua One', cursive;
   display: block;
   cursor: pointer;
   text-align: center;
+  padding: 1em;
+  background: #f75239;
+  color: #ecf0f1;
+  width: 100%;
+  max-width: 450px;
+}
+
+.timer-display p {
+ margin: 0;
 }
 
 .display__time-left {
-  font-size: 100px;
+  display: block;
+  width: 300px;
+  font-size: 120px;
   margin: 0;
+  background: #f75239;
+  color: #ecf0f1;
+  line-height: 1;
+ 
 }
 
 .checkmarks {
+  background: #ecf0f1;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  margin-top: 3em;
+  padding:.6em 0
 }
 
-.checkmarks span {
-  width: 100%;
-  height: 20px;
-  text-align: center;
+.checkmarks svg {
   opacity: 0;
-  font-size: 24px;
 }
 
 .info {
@@ -80,6 +98,7 @@ nav li {
   line-height: 1.5;
   font-size: 22px;
   margin: 0 1em;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .info span {
@@ -89,11 +108,12 @@ nav li {
 }
 
 .settings {
-  margin-left: auto;
-  background: #2c3e50;
   width: 100%;
-  padding: 1em 1em 0 1em;
+  margin-left: auto;
+  background: #402F3F ;
+  padding: 1em;
   color: #ecf0f1;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .setting {
@@ -117,15 +137,14 @@ nav li {
   font-size: 16px;
   text-align: center;
   user-select: none;
-  color : #ecf0f1;
+  color: #ecf0f1;
   width: 40px;
-  background: #2c3e50;
+  background:  #402F3F  
 }
 
 .setting button {
-
   font-size: 16px;
-  background: #2c3e50;
+  background: #f75239;
   /* background: #3498db; */
   margin: 0 5px;
   color: #ecf0f1;
@@ -139,18 +158,29 @@ nav li {
 }
 
 .footer {
-    margin-top: 1.6em;
-    color: #ecf0f1;
-    font-size: 12px;
+  width: 100%;
+  background:  #402F3F;
+  margin-top: 1.6em;
+  color: #ecf0f1;
+  font-size: 12px;
+  text-align: center;
 }
 
-.footer a {
-    color: #2980B9;
-    text-decoration: none;
+a {
+  text-decoration: none;
+  color: #f75239;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 444px) {
+  .settings {
+    width: auto;
+  }
   .display__time-left {
     font-size: 170px;
+    width: 420px;
   }
 }
+
+
+/* #f75239 */
+/* #402F3F */

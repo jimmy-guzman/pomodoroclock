@@ -1,7 +1,7 @@
 const timerDisplay = document.querySelector(".display__time-left");
 const timerBox = document.querySelector(".timer-display");
 const endTime = document.querySelector(".display__end-time");
-const checkmarks = document.querySelectorAll(".checkmarks span");
+const checkmarks = document.querySelectorAll(".checkmarks svg");
 const length = document.querySelectorAll(".length span");
 const sessionDisplay = document.querySelector(".display__session");
 const lengthButtons = document.querySelectorAll("[data-amt]");
@@ -76,10 +76,10 @@ function getSession() {
     seconds = length[0].textContent * 60;
   } else {
     if (pomodoros < 4) {
-      session = "Short Break";
+      session = "Take a Short Break";
       seconds = length[1].textContent * 60;
     } else {
-      session = "Long Break";
+      session = "Take a Long Break";
       seconds = length[2].textContent * 60;
       pomodoros = 0;
     }
