@@ -10,7 +10,8 @@
   * Long Break if 4 focus session have passed
 * The user can customize the length of each pomodoro.
 * Keeps track of how many pomodoros have elapsed
-* Button to display info about the pomodoro technique
-### Future Updates:
+* Info module explaining the pomodoro technique
+* Toggle info and settings display
 * Layout Redesign
+### Future Updates:
 * The user can save settings to local storage
