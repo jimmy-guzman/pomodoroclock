@@ -7,6 +7,7 @@ const sessionDisplay = document.querySelector(".display__session");
 const lengthButtons = document.querySelectorAll("[data-amt]");
 const navButtons = document.querySelectorAll("nav li");
 const info = document.querySelector(".info");
+const settings = document.querySelector(".settings");
 
 let countdown;
 let count = 0;
@@ -87,6 +88,7 @@ function getSession() {
 }
 
 function startTimer() {
+  settings.style.display = "none";
   if ((!isStart && !isPaused) || defaultTimer) {
     count++;
     if (count % 2 !== 0) pomodoros++;
@@ -130,6 +132,12 @@ function handleNav() {
     timerBox.style.display = "block";
     info.style.display = "none";
     this.textContent = "ℹ";
+  } else if (this.textContent === "settings") {
+    settings.style.display = "block";
+    this.textContent = "done";
+  } else if (this.textContent === "done") {
+    settings.style.display = "none";
+    this.textContent = "settings";
   }
 }
 
