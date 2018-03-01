@@ -11,7 +11,11 @@
 * The user can customize the length of each pomodoro.
 * Keeps track of how many pomodoros have elapsed
 * Button to display info about the pomodoro technique
-* The user can save settings to local storage
+* Info module explaining the pomodoro technique
+* Toggle info and settings display
+* Layout Redesign
+* The user can save settings
 ### Future Updates:
 * The user can input settings lengths
+* Show progress of time elapsed
 
