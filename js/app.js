@@ -89,7 +89,6 @@ function getSession() {
 }
 
 function startTimer() {
-  settings.style.display = "none";
   if ((!isStart && !isPaused) || defaultTimer) {
     count++;
     if (count % 2 !== 0) pomodoros++;
