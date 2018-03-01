@@ -47,7 +47,7 @@ nav {
 
 nav li {
   font-size: 20px;
-  padding:  .5em;
+  padding: .5em;
   margin-left: .5em;
   color: #f75239;
   cursor: pointer;
@@ -124,7 +124,6 @@ nav li {
 }
 
 .setting {
-
   color: #402F3F;
   width: 100%;
   display: flex;
@@ -149,19 +148,29 @@ nav li {
   width: 40px;
 }
 
-.setting button {
+.setting button,
+.save-buttons button {
   font-size: 16px;
   background: #f75239;
-  /* background: #3498db; */
   margin: 0 5px;
   color: #ecf0f1;
   border: none;
   outline: none;
 }
 
-.setting button:hover {
+.setting button:hover,
+.save-buttons button:hover {
   cursor: pointer;
-  background: #2980b9;
+  background: #402F3F;
+}
+
+.save-buttons button {
+  width: 100%;
+}
+
+.save-buttons {
+  display: flex;
+  margin-top: 1em;
 }
 
 .footer {

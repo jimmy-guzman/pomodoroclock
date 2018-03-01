@@ -7,6 +7,7 @@ const sessionDisplay = document.querySelector(".display__session");
 const lengthButtons = document.querySelectorAll("[data-amt]");
 const navButtons = document.querySelectorAll("nav li");
 const info = document.querySelector(".info");
+const saveResetBtns = document.querySelectorAll(".save-buttons button");
 const settings = document.querySelector(".settings");
 
 let countdown;
@@ -141,6 +142,32 @@ function handleNav() {
   }
 }
 
+function handleSave() {
+  if (this.textContent === "Save") {
+    localStorage.setItem("isSaved", true);
+    localStorage.setItem("focusMins", length[0].textContent);
+    localStorage.setItem("shortBrkMins", length[1].textContent);
+    localStorage.setItem("longBrkMins", length[2].textContent);
+  } else if (this.textContent === "Default") {
+    length[0].textContent = 25;
+    length[1].textContent = 5;
+    length[2].textContent = 30;
+  }
+
+}
+
+function loadSettings() {
+  length[0].textContent = localStorage.focusMins;
+  length[1].textContent = localStorage.shortBrkMins;
+  length[2].textContent = localStorage.longBrkMins;
+}
+
+if(localStorage.isSaved) {
+  loadSettings()
+}
+
+
 timerBox.addEventListener("click", startTimer);
 lengthButtons.forEach(button => button.addEventListener("click", handleLength));
 navButtons.forEach(button => button.addEventListener("click", handleNav));
+saveResetBtns.forEach(button => button.addEventListener("click", handleSave));
